@@ -1,0 +1,43 @@
+2025-12-16 16:01:24 CONTROL Session started at 25-12-16_16h01m24s
+2025-12-16 16:01:24 CONTROL Connected with CoppeliaSim.
+2025-12-16 16:01:30 ROBOT Starting new trial: 1 out of 5
+2025-12-16 16:01:30 CONTROL Task has started.
+2025-12-16 16:01:34 HUMAN Human is grasping object 3.
+2025-12-16 16:01:34 HUMAN Human is placing object 3.
+2025-12-16 16:01:36 ROBOT Robot will target object 4.
+2025-12-16 16:01:36 ROBOT Replanning: previous target was 0, new target is 4.
+2025-12-16 16:01:36 HUMAN Human is grasping object 4.
+2025-12-16 16:01:38 ROBOT Robot is grasping object 4.
+2025-12-16 16:01:38 ROBOT Robot is placing object 4.
+2025-12-16 16:01:40 HUMAN Human is grasping object 2.
+2025-12-16 16:01:44 ROBOT Robot will target object 3.
+2025-12-16 16:01:47 HUMAN Human is grasping object 1.
+2025-12-16 16:01:49 HUMAN Human is placing object 1.
+2025-12-16 16:02:04 HUMAN Human is grasping object 2.
+2025-12-16 16:02:25 HUMAN Human is grasping object 2.
+2025-12-16 16:02:29 HUMAN Human is grasping object 2.
+2025-12-16 16:02:33 HUMAN Human is grasping object 2.
+2025-12-16 16:02:41 HUMAN Human is grasping object 2.
+2025-12-16 16:02:57 ROBOT Robot is grasping object 2.
+2025-12-16 16:02:58 HUMAN Human is grasping object 2.
+2025-12-16 16:03:00 ROBOT Robot is placing object 2.
+2025-12-16 16:03:00 CONTROL Previous task has finished.
+2025-12-16 16:03:00 CONTROL Re-planning count: 1
+2025-12-16 16:03:00 CONTROL Collision count: 4
+2025-12-16 16:03:00 CONTROL Human idle time: 1
+2025-12-16 16:03:00 CONTROL Robot idle time: 35
+2025-12-16 16:03:00 CONTROL Common grasp: 1
+2025-12-16 16:03:07 HUMAN Human is grasping object 5.
+2025-12-16 16:03:10 HUMAN Human is placing object 5.
+2025-12-16 16:03:11 HUMAN Human is grasping object 6.
+2025-12-16 16:03:16 HUMAN Human is grasping object 6.
+2025-12-16 16:03:20 ROBOT Robot will target object 6.
+2025-12-16 16:03:20 ROBOT Replanning: previous target was 3, new target is 6.
+2025-12-16 16:03:30 HUMAN Human is grasping object 7.
+2025-12-16 16:03:32 HUMAN Human is grasping object 8.
+2025-12-16 16:03:33 HUMAN Human is placing object 7.
+2025-12-16 16:03:42 HUMAN Human is grasping object 8.
+2025-12-16 16:03:56 HUMAN Human is grasping object 8.
+2025-12-16 16:03:58 ROBOT Robot is grasping object 8.
+2025-12-16 16:04:01 ROBOT Robot is placing object 8.
+2025-12-16 16:04:03 HUMAN Human is grasping object 6.

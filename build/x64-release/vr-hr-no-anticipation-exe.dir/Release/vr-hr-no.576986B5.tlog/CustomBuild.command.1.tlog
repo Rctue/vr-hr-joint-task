@@ -1,0 +1,10 @@
+^C:\DEV\VR-HR-JOINT-TASK\VR-HR-JOINT-TASK\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/dev/vr-hr-joint-task/vr-hr-joint-task -BC:/dev/vr-hr-joint-task/vr-hr-joint-task/build/x64-release --check-stamp-file C:/dev/vr-hr-joint-task/vr-hr-joint-task/build/x64-release/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

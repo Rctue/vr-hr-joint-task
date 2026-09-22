@@ -1,0 +1,37 @@
+2025-12-19 12:10:57 CONTROL Session started at 25-12-19_12h10m57s
+2025-12-19 12:10:57 CONTROL Connected with CoppeliaSim.
+2025-12-19 12:11:06 ROBOT Starting new trial: 1 out of 5
+2025-12-19 12:11:06 CONTROL Task has started.
+2025-12-19 12:11:07 HUMAN Human is grasping object 3.
+2025-12-19 12:11:08 HUMAN Human is placing object 3.
+2025-12-19 12:11:09 HUMAN Human is grasping object 4.
+2025-12-19 12:11:10 ROBOT Robot will target object 4.
+2025-12-19 12:11:10 ROBOT Replanning: previous target was 0, new target is 4.
+2025-12-19 12:11:11 ROBOT Robot is grasping object 4.
+2025-12-19 12:11:12 HUMAN Human is grasping object 7.
+2025-12-19 12:11:14 ROBOT Robot is placing object 4.
+2025-12-19 12:11:14 HUMAN Human is placing object 7.
+2025-12-19 12:11:15 ROBOT Robot will target object 8.
+2025-12-19 12:11:16 HUMAN Human is grasping object 8.
+2025-12-19 12:11:18 ROBOT Robot is grasping object 8.
+2025-12-19 12:11:18 ROBOT Robot is placing object 8.
+2025-12-19 12:11:18 CONTROL Previous task has finished.
+2025-12-19 12:11:18 CONTROL Re-planning count: 1
+2025-12-19 12:11:18 CONTROL Collision count: 2
+2025-12-19 12:11:18 CONTROL Human idle time: 0
+2025-12-19 12:11:18 CONTROL Robot idle time: 5
+2025-12-19 12:11:18 CONTROL Common grasp: 1
+2025-12-19 12:11:21 ROBOT Starting new trial: 2 out of 5
+2025-12-19 12:11:21 CONTROL Task has started.
+2025-12-19 12:11:22 ROBOT Robot will target object 4.
+2025-12-19 12:11:23 HUMAN Human is grasping object 4.
+2025-12-19 12:11:24 ROBOT Robot is grasping object 4.
+2025-12-19 12:11:25 ROBOT Robot is placing object 4.
+2025-12-19 12:11:25 HUMAN Human is grasping object 3.
+2025-12-19 12:11:25 HUMAN Human is placing object 3.
+2025-12-19 12:11:27 HUMAN Human is grasping object 7.
+2025-12-19 12:11:27 HUMAN Human is placing object 7.
+2025-12-19 12:11:29 ROBOT Robot will target object 8.
+2025-12-19 12:11:29 ROBOT Replanning: previous target was 4, new target is 8.
+2025-12-19 12:11:29 HUMAN Human is grasping object 8.
+2025-12-19 12:11:33 ROBOT Robot is grasping object 8.

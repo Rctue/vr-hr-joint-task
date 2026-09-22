@@ -1,0 +1,10 @@
+^C:\DEV\VR-HR-JOINT-TASK\VR-HR-JOINT-TASK\BUILD\X64-RELEASE\CMAKEFILES\0BC0C07F6A04ABD53474A36896B10FA4\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/dev/vr-hr-joint-task/vr-hr-joint-task -BC:/dev/vr-hr-joint-task/vr-hr-joint-task/build/x64-release --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/dev/vr-hr-joint-task/vr-hr-joint-task/build/x64-release/vr-hr-joint-task.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

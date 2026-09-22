@@ -1,0 +1,4 @@
+2025-12-19 12:29:24 CONTROL Session started at 25-12-19_12h29m24s
+2025-12-19 12:29:24 CONTROL Connected with CoppeliaSim.
+2025-12-19 12:29:34 ROBOT Starting new trial: 1 out of 5
+2025-12-19 12:29:34 CONTROL Task has started.

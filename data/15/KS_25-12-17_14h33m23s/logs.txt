@@ -1,0 +1,76 @@
+2025-12-17 14:33:23 CONTROL Session started at 25-12-17_14h33m23s
+2025-12-17 14:33:24 CONTROL Connected with CoppeliaSim.
+2025-12-17 14:33:25 ROBOT Robot will target object 7.
+2025-12-17 14:33:33 ROBOT Starting new trial: 1 out of 5
+2025-12-17 14:33:33 CONTROL Task has started.
+2025-12-17 14:33:34 ROBOT Robot will target object 3.
+2025-12-17 14:33:35 HUMAN Human is grasping object 7.
+2025-12-17 14:33:35 HUMAN Human is placing object 7.
+2025-12-17 14:33:36 ROBOT Robot is grasping object 3.
+2025-12-17 14:33:36 ROBOT Robot is placing object 3.
+2025-12-17 14:33:36 ROBOT Robot will target object 5.
+2025-12-17 14:33:36 ROBOT Replanning: previous target was 3, new target is 5.
+2025-12-17 14:33:36 HUMAN Human is grasping object 1.
+2025-12-17 14:33:37 HUMAN Human is grasping object 5.
+2025-12-17 14:33:37 CONTROL Previous task has finished.
+2025-12-17 14:33:37 CONTROL Re-planning count: 1
+2025-12-17 14:33:37 CONTROL Collision count: 0
+2025-12-17 14:33:37 CONTROL Human idle time: 0
+2025-12-17 14:33:37 CONTROL Robot idle time: 0
+2025-12-17 14:33:37 CONTROL Common grasp: 1
+2025-12-17 14:33:37 ROBOT Robot will target object 5.
+2025-12-17 14:33:37 HUMAN Human is placing object 1.
+2025-12-17 14:33:37 HUMAN Human is placing object 5.
+2025-12-17 14:33:41 ROBOT Starting new trial: 2 out of 5
+2025-12-17 14:33:41 CONTROL Task has started.
+2025-12-17 14:33:42 ROBOT Robot will target object 1.
+2025-12-17 14:33:43 HUMAN Human is grasping object 1.
+2025-12-17 14:33:43 HUMAN Human is placing object 1.
+2025-12-17 14:33:43 HUMAN Human is placing object 7.
+2025-12-17 14:33:45 HUMAN Human is grasping object 3.
+2025-12-17 14:33:46 ROBOT Robot is grasping object 5.
+2025-12-17 14:33:46 ROBOT Robot is placing object 5.
+2025-12-17 14:33:47 HUMAN Human is placing object 3.
+2025-12-17 14:33:47 CONTROL Previous task has finished.
+2025-12-17 14:33:50 ROBOT Starting new trial: 3 out of 5
+2025-12-17 14:33:50 CONTROL Task has started.
+2025-12-17 14:33:50 ROBOT Robot will target object 1.
+2025-12-17 14:33:50 ROBOT Replanning: previous target was 1, new target is 1.
+2025-12-17 14:33:52 ROBOT Robot is grasping object 1.
+2025-12-17 14:33:53 ROBOT Robot is placing object 1.
+2025-12-17 14:33:53 HUMAN Human is grasping object 5.
+2025-12-17 14:33:53 ROBOT Robot will target object 3.
+2025-12-17 14:33:53 ROBOT Replanning: previous target was 1, new target is 3.
+2025-12-17 14:33:53 HUMAN Human is grasping object 7.
+2025-12-17 14:33:53 HUMAN Human is placing object 5.
+2025-12-17 14:33:54 ROBOT Robot is grasping object 3.
+2025-12-17 14:33:56 HUMAN Human is placing object 7.
+2025-12-17 14:33:57 ROBOT Robot is placing object 3.
+2025-12-17 14:33:57 CONTROL Previous task has finished.
+2025-12-17 14:33:57 CONTROL Re-planning count: 2
+2025-12-17 14:33:57 CONTROL Collision count: 0
+2025-12-17 14:33:57 CONTROL Human idle time: 0
+2025-12-17 14:33:57 CONTROL Robot idle time: 0
+2025-12-17 14:33:57 CONTROL Common grasp: 0
+2025-12-17 14:34:00 ROBOT Starting new trial: 4 out of 5
+2025-12-17 14:34:00 CONTROL Task has started.
+2025-12-17 14:34:00 ROBOT Robot will target object 3.
+2025-12-17 14:34:00 ROBOT Replanning: previous target was 3, new target is 3.
+2025-12-17 14:34:01 HUMAN Human is grasping object 1.
+2025-12-17 14:34:02 HUMAN Human is placing object 1.
+2025-12-17 14:34:03 ROBOT Robot is grasping object 3.
+2025-12-17 14:34:03 ROBOT Robot is placing object 3.
+2025-12-17 14:34:03 ROBOT Robot will target object 7.
+2025-12-17 14:34:03 ROBOT Replanning: previous target was 3, new target is 7.
+2025-12-17 14:34:03 HUMAN Human is grasping object 5.
+2025-12-17 14:34:04 HUMAN Human is placing object 5.
+2025-12-17 14:34:05 ROBOT Robot is grasping object 7.
+2025-12-17 14:34:07 ROBOT Robot is placing object 7.
+2025-12-17 14:34:07 CONTROL Previous task has finished.
+2025-12-17 14:34:07 CONTROL Re-planning count: 2
+2025-12-17 14:34:07 CONTROL Collision count: 0
+2025-12-17 14:34:07 CONTROL Human idle time: 0
+2025-12-17 14:34:07 CONTROL Robot idle time: 2
+2025-12-17 14:34:07 CONTROL Common grasp: 0
+2025-12-17 14:34:10 ROBOT Starting new trial: 5 out of 5
+2025-12-17 14:34:10 CONTROL Task has started.

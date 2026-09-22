@@ -1,0 +1,15 @@
+2025-12-17 12:11:11 CONTROL Session started at 25-12-17_12h11m11s
+2025-12-17 12:11:12 CONTROL Connected with CoppeliaSim.
+2025-12-17 12:11:14 ROBOT Robot will target object 4.
+2025-12-17 12:11:22 HUMAN Human is grasping object 3.
+2025-12-17 12:11:22 HUMAN Human is placing object 3.
+2025-12-17 12:11:26 HUMAN Human is grasping object 7.
+2025-12-17 12:11:29 HUMAN Human is placing object 7.
+2025-12-17 12:12:05 HUMAN Human is grasping object 4.
+2025-12-17 12:12:22 ROBOT Starting new trial: 1 out of 5
+2025-12-17 12:12:22 CONTROL Task has started.
+2025-12-17 12:12:22 ROBOT Robot will target object 4.
+2025-12-17 12:12:22 ROBOT Replanning: previous target was 4, new target is 4.
+2025-12-17 12:12:24 ROBOT Robot is grasping object 4.
+2025-12-17 12:12:25 ROBOT Robot is placing object 4.
+2025-12-17 12:12:25 HUMAN Human is grasping object 4.

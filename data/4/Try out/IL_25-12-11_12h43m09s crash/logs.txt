@@ -1,0 +1,37 @@
+2025-12-11 12:43:09 CONTROL Session started at 25-12-11_12h43m09s
+2025-12-11 12:43:10 CONTROL Connected with CoppeliaSim.
+2025-12-11 12:43:18 ROBOT Starting new trial: 1 out of 5
+2025-12-11 12:43:18 CONTROL Task has started.
+2025-12-11 12:43:20 ROBOT Robot will target object 4.
+2025-12-11 12:43:21 ROBOT Robot is grasping object 4.
+2025-12-11 12:43:21 HUMAN Human is grasping object 4.
+2025-12-11 12:43:23 ROBOT Robot is placing object 4.
+2025-12-11 12:43:23 ROBOT Robot will target object 2.
+2025-12-11 12:43:23 ROBOT Replanning: previous target was 4, new target is 2.
+2025-12-11 12:43:23 HUMAN Human is grasping object 2.
+2025-12-11 12:43:25 ROBOT Robot is grasping object 2.
+2025-12-11 12:43:25 ROBOT Robot is placing object 2.
+2025-12-11 12:43:26 ROBOT Robot will target object 6.
+2025-12-11 12:43:26 ROBOT Replanning: previous target was 2, new target is 6.
+2025-12-11 12:43:28 HUMAN Human is grasping object 6.
+2025-12-11 12:43:36 ROBOT Robot is grasping object 8.
+2025-12-11 12:43:37 HUMAN Human is grasping object 8.
+2025-12-11 12:43:38 ROBOT Robot is placing object 8.
+2025-12-11 12:43:41 HUMAN Human is grasping object 6.
+2025-12-11 12:43:42 ROBOT Robot is placing object 6.
+2025-12-11 12:43:42 CONTROL Previous task has finished.
+2025-12-11 12:43:42 CONTROL Re-planning count: 5
+2025-12-11 12:43:42 CONTROL Collision count: 4
+2025-12-11 12:43:42 CONTROL Human idle time: 0
+2025-12-11 12:43:42 CONTROL Robot idle time: 7
+2025-12-11 12:43:42 CONTROL Common grasp: 4
+2025-12-11 12:43:46 ROBOT Starting new trial: 2 out of 5
+2025-12-11 12:43:46 CONTROL Task has started.
+2025-12-11 12:43:47 ROBOT Robot will target object 6.
+2025-12-11 12:43:47 ROBOT Replanning: previous target was 6, new target is 6.
+2025-12-11 12:43:48 ROBOT Robot is grasping object 6.
+2025-12-11 12:43:51 ROBOT Robot is placing object 6.
+2025-12-11 12:43:52 ROBOT Robot will target object 4.
+2025-12-11 12:43:52 ROBOT Replanning: previous target was 6, new target is 4.
+2025-12-11 12:43:53 HUMAN Human is grasping object 4.
+2025-12-11 12:43:57 HUMAN Human is grasping object 2.

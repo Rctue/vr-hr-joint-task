@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\dev\vr-hr-joint-task\vr-hr-joint-task\src\experiment.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\dev\vr-hr-joint-task\vr-hr-joint-task\src\dnf_architecture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\dev\vr-hr-joint-task\vr-hr-joint-task\src\misc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\dev\vr-hr-joint-task\vr-hr-joint-task\src\dnf_composer_handler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\dev\vr-hr-joint-task\vr-hr-joint-task\src\coppeliasim_handler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\dev\vr-hr-joint-task\vr-hr-joint-task\src\event_logger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\dev\vr-hr-joint-task\vr-hr-joint-task\src\logger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\dev\vr-hr-joint-task\vr-hr-joint-task\include\experiment.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\dev\vr-hr-joint-task\vr-hr-joint-task\include\dnf_architecture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\dev\vr-hr-joint-task\vr-hr-joint-task\include\misc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\dev\vr-hr-joint-task\vr-hr-joint-task\include\dnf_composer_handler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\dev\vr-hr-joint-task\vr-hr-joint-task\include\coppeliasim_handler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\dev\vr-hr-joint-task\vr-hr-joint-task\include\event_logger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\dev\vr-hr-joint-task\vr-hr-joint-task\include\logger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\dev\vr-hr-joint-task\vr-hr-joint-task\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{DF773C0D-2D75-3AD0-8CC2-986CB303B6E8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{B794128D-745F-3994-978B-442C50065E08}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

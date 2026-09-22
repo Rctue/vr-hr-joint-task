@@ -1,0 +1,228 @@
+#include "coppeliasim_handler.h"
+
+CoppeliasimHandler::CoppeliasimHandler()
+	: incomingSignalsClient("127.0.0.1", 19999),
+	outgoingSignalsClient("127.0.0.1", 19998),
+	handClient("127.0.0.1", 19995)
+{
+	incomingSignalsClient.setLogMode(coppeliasim_cpp::LogMode::NO_LOGS);
+	outgoingSignalsClient.setLogMode(coppeliasim_cpp::LogMode::NO_LOGS);
+	handClient.setLogMode(coppeliasim_cpp::LogMode::NO_LOGS);
+}
+
+CoppeliasimHandler::~CoppeliasimHandler()
+{
+	end();
+}
+
+void CoppeliasimHandler::init()
+{
+	incomingSignalsThread = std::thread(&CoppeliasimHandler::incomingSignalsLoop, this);
+	outgoingSignalsThread = std::thread(&CoppeliasimHandler::outgoingSignalsLoop, this);
+	handThread = std::thread(&CoppeliasimHandler::readHandPosition, this);
+}
+
+void CoppeliasimHandler::incomingSignalsLoop()
+{
+
+	while (!incomingSignalsClient.initialize()) {}
+
+	incomingSignalsClient.startSimulation();
+
+	resetSignals();
+
+	while (isConnected() && !killEverything)
+	{
+		readSignals();
+	}
+
+	incomingSignalsClient.stopSimulation();
+}
+
+void CoppeliasimHandler::outgoingSignalsLoop()
+{
+	while (!outgoingSignalsClient.initialize()) {}
+
+	while (outgoingSignalsClient.isConnected() && !killEverything)
+	{
+		writeSignals();
+	}
+
+}
+
+void CoppeliasimHandler::setSignals(const OutgoingSignals& signals)
+{
+	outgoingSignals = signals;
+}
+
+IncomingSignals CoppeliasimHandler::getSignals() const
+{
+	return incomingSignals;
+}
+
+void CoppeliasimHandler::readHandPosition()
+{
+	while (!handClient.initialize()) {}
+
+	hand.objectHandle = handClient.getObjectHandle("RightController");
+
+    while (handClient.isConnected() && !killEverything)
+    {
+        coppeliasim_cpp::Pose pos = handClient.getObjectPose(hand.objectHandle);
+		hand.pose = { {pos.position.x,
+			pos.position.y,
+			pos.position.z},
+			{pos.orientation.alpha,
+			pos.orientation.beta,
+			pos.orientation.gamma}
+		};
+    }
+}
+
+Pose CoppeliasimHandler::getHandPose() const
+{
+	return hand.pose;
+}
+
+void CoppeliasimHandler::end()
+{
+	if (isConnected())
+		incomingSignalsClient.stopSimulation();
+	if (incomingSignalsThread.joinable())
+		incomingSignalsThread.join();
+	if (outgoingSignalsThread.joinable())
+		outgoingSignalsThread.join();
+	if (handThread.joinable())
+		handThread.join();
+}
+
+bool CoppeliasimHandler::isConnected() const
+{
+	return incomingSignalsClient.isConnected();
+}
+
+void CoppeliasimHandler::readSignals()
+{
+	incomingSignals.simStarted = incomingSignalsClient.getIntegerSignal(IncomingSignals::SIM_STARTED);
+	incomingSignals.object1 = incomingSignalsClient.getIntegerSignal(IncomingSignals::OBJECT1_EXISTS);
+	incomingSignals.object2 = incomingSignalsClient.getIntegerSignal(IncomingSignals::OBJECT2_EXISTS);
+	incomingSignals.object3 = incomingSignalsClient.getIntegerSignal(IncomingSignals::OBJECT3_EXISTS);
+	incomingSignals.object4 = incomingSignalsClient.getIntegerSignal(IncomingSignals::OBJECT4_EXISTS);
+	incomingSignals.object5 = incomingSignalsClient.getIntegerSignal(IncomingSignals::OBJECT5_EXISTS);
+	incomingSignals.object6 = incomingSignalsClient.getIntegerSignal(IncomingSignals::OBJECT6_EXISTS);
+	incomingSignals.object7 = incomingSignalsClient.getIntegerSignal(IncomingSignals::OBJECT7_EXISTS);
+	incomingSignals.object8 = incomingSignalsClient.getIntegerSignal(IncomingSignals::OBJECT8_EXISTS);
+	incomingSignals.robotApproaching = incomingSignalsClient.getIntegerSignal(IncomingSignals::ROBOT_APPROACH);
+	incomingSignals.robotGrasping = incomingSignalsClient.getIntegerSignal(IncomingSignals::ROBOT_GRASP);
+
+	incomingSignals.robotGraspObj1 = incomingSignalsClient.getIntegerSignal(IncomingSignals::ROBOT_GRASP_OBJ1);
+	incomingSignals.robotGraspObj2 = incomingSignalsClient.getIntegerSignal(IncomingSignals::ROBOT_GRASP_OBJ2);
+	incomingSignals.robotGraspObj3 = incomingSignalsClient.getIntegerSignal(IncomingSignals::ROBOT_GRASP_OBJ3);
+	incomingSignals.robotGraspObj4 = incomingSignalsClient.getIntegerSignal(IncomingSignals::ROBOT_GRASP_OBJ4);
+	incomingSignals.robotGraspObj5 = incomingSignalsClient.getIntegerSignal(IncomingSignals::ROBOT_GRASP_OBJ5);
+	incomingSignals.robotGraspObj6 = incomingSignalsClient.getIntegerSignal(IncomingSignals::ROBOT_GRASP_OBJ6);
+	incomingSignals.robotGraspObj7 = incomingSignalsClient.getIntegerSignal(IncomingSignals::ROBOT_GRASP_OBJ7);
+	incomingSignals.robotGraspObj8 = incomingSignalsClient.getIntegerSignal(IncomingSignals::ROBOT_GRASP_OBJ8);
+
+	incomingSignals.robotPlaceObj1 = incomingSignalsClient.getIntegerSignal(IncomingSignals::ROBOT_PLACE_OBJ1);
+	incomingSignals.robotPlaceObj2 = incomingSignalsClient.getIntegerSignal(IncomingSignals::ROBOT_PLACE_OBJ2);
+	incomingSignals.robotPlaceObj3 = incomingSignalsClient.getIntegerSignal(IncomingSignals::ROBOT_PLACE_OBJ3);
+	incomingSignals.robotPlaceObj4 = incomingSignalsClient.getIntegerSignal(IncomingSignals::ROBOT_PLACE_OBJ4);
+	incomingSignals.robotPlaceObj5 = incomingSignalsClient.getIntegerSignal(IncomingSignals::ROBOT_PLACE_OBJ5);
+	incomingSignals.robotPlaceObj6 = incomingSignalsClient.getIntegerSignal(IncomingSignals::ROBOT_PLACE_OBJ6);
+	incomingSignals.robotPlaceObj7 = incomingSignalsClient.getIntegerSignal(IncomingSignals::ROBOT_PLACE_OBJ7);
+	incomingSignals.robotPlaceObj8 = incomingSignalsClient.getIntegerSignal(IncomingSignals::ROBOT_PLACE_OBJ8);
+
+	incomingSignals.humanGraspObj1 = incomingSignalsClient.getIntegerSignal(IncomingSignals::HUMAN_GRASP_OBJ1);
+	incomingSignals.humanGraspObj2 = incomingSignalsClient.getIntegerSignal(IncomingSignals::HUMAN_GRASP_OBJ2);
+	incomingSignals.humanGraspObj3 = incomingSignalsClient.getIntegerSignal(IncomingSignals::HUMAN_GRASP_OBJ3);
+	incomingSignals.humanGraspObj4 = incomingSignalsClient.getIntegerSignal(IncomingSignals::HUMAN_GRASP_OBJ4);
+	incomingSignals.humanGraspObj5 = incomingSignalsClient.getIntegerSignal(IncomingSignals::HUMAN_GRASP_OBJ5);
+	incomingSignals.humanGraspObj6 = incomingSignalsClient.getIntegerSignal(IncomingSignals::HUMAN_GRASP_OBJ6);
+	incomingSignals.humanGraspObj7 = incomingSignalsClient.getIntegerSignal(IncomingSignals::HUMAN_GRASP_OBJ7);
+	incomingSignals.humanGraspObj8 = incomingSignalsClient.getIntegerSignal(IncomingSignals::HUMAN_GRASP_OBJ8);
+
+	incomingSignals.humanPlaceObj1 = incomingSignalsClient.getIntegerSignal(IncomingSignals::HUMAN_PLACE_OBJ1);
+	incomingSignals.humanPlaceObj2 = incomingSignalsClient.getIntegerSignal(IncomingSignals::HUMAN_PLACE_OBJ2);
+	incomingSignals.humanPlaceObj3 = incomingSignalsClient.getIntegerSignal(IncomingSignals::HUMAN_PLACE_OBJ3);
+	incomingSignals.humanPlaceObj4 = incomingSignalsClient.getIntegerSignal(IncomingSignals::HUMAN_PLACE_OBJ4);
+	incomingSignals.humanPlaceObj5 = incomingSignalsClient.getIntegerSignal(IncomingSignals::HUMAN_PLACE_OBJ5);
+	incomingSignals.humanPlaceObj6 = incomingSignalsClient.getIntegerSignal(IncomingSignals::HUMAN_PLACE_OBJ6);
+	incomingSignals.humanPlaceObj7 = incomingSignalsClient.getIntegerSignal(IncomingSignals::HUMAN_PLACE_OBJ7);
+	incomingSignals.humanPlaceObj8 = incomingSignalsClient.getIntegerSignal(IncomingSignals::HUMAN_PLACE_OBJ8);
+	incomingSignals.canRestart = incomingSignalsClient.getIntegerSignal(IncomingSignals::CAN_RESTART);
+	incomingSignals.restart = incomingSignalsClient.getIntegerSignal(IncomingSignals::RESTART);
+
+	incomingSignals.collisionCounter = incomingSignalsClient.getIntegerSignal(IncomingSignals::COLLISION);
+
+	incomingSignals.humanIdleTime = incomingSignalsClient.getIntegerSignal(IncomingSignals::HUMAN_IDLE_TIME);
+	incomingSignals.robotIdleTime = incomingSignalsClient.getIntegerSignal(IncomingSignals::ROBOT_IDLE_TIME);
+	incomingSignals.replanningCount = incomingSignalsClient.getIntegerSignal(IncomingSignals::REPLANNING_COUNT);
+	incomingSignals.commonGrasp = incomingSignalsClient.getIntegerSignal(IncomingSignals::COMMON_GRASP);
+
+	incomingSignals.humanIsGrasping =
+		incomingSignalsClient.getIntegerSignal(IncomingSignals::HUMAN_IS_GRASPING);
+}
+
+void CoppeliasimHandler::writeSignals() const
+{
+	outgoingSignalsClient.setIntegerSignal(OutgoingSignals::START_SIM, outgoingSignals.startSim);
+	outgoingSignalsClient.setIntegerSignal(OutgoingSignals::TARGET_OBJECT, outgoingSignals.targetObject);
+	outgoingSignalsClient.setIntegerSignal(OutgoingSignals::ARCHITECTURE_TYPE, outgoingSignals.archType);
+}
+
+void CoppeliasimHandler::resetSignals() const
+{
+	incomingSignalsClient.setIntegerSignal(OutgoingSignals::START_SIM, 0);
+	incomingSignalsClient.setIntegerSignal(OutgoingSignals::TARGET_OBJECT, 0);
+
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::SIM_STARTED, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::OBJECT1_EXISTS, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::OBJECT2_EXISTS, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::OBJECT3_EXISTS, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::OBJECT4_EXISTS, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::OBJECT5_EXISTS, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::OBJECT6_EXISTS, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::OBJECT7_EXISTS, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::OBJECT8_EXISTS, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::ROBOT_APPROACH, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::ROBOT_GRASP, 0);
+
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::ROBOT_GRASP_OBJ1, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::ROBOT_GRASP_OBJ2, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::ROBOT_GRASP_OBJ3, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::ROBOT_GRASP_OBJ4, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::ROBOT_GRASP_OBJ5, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::ROBOT_GRASP_OBJ6, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::ROBOT_GRASP_OBJ7, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::ROBOT_GRASP_OBJ8, 0);
+
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::ROBOT_PLACE_OBJ1, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::ROBOT_PLACE_OBJ2, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::ROBOT_PLACE_OBJ3, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::ROBOT_PLACE_OBJ4, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::ROBOT_PLACE_OBJ5, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::ROBOT_PLACE_OBJ6, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::ROBOT_PLACE_OBJ7, 0	);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::ROBOT_PLACE_OBJ8, 0);
+
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::HUMAN_GRASP_OBJ1, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::HUMAN_GRASP_OBJ2, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::HUMAN_GRASP_OBJ3, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::HUMAN_GRASP_OBJ4, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::HUMAN_GRASP_OBJ5, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::HUMAN_GRASP_OBJ6, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::HUMAN_GRASP_OBJ7, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::HUMAN_GRASP_OBJ8, 0);
+
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::HUMAN_PLACE_OBJ1, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::HUMAN_PLACE_OBJ2, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::HUMAN_PLACE_OBJ3, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::HUMAN_PLACE_OBJ4, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::HUMAN_PLACE_OBJ5, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::HUMAN_PLACE_OBJ6, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::HUMAN_PLACE_OBJ7, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::HUMAN_PLACE_OBJ8, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::CAN_RESTART, 0);
+	incomingSignalsClient.setIntegerSignal(IncomingSignals::RESTART, 0);
+}

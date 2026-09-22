@@ -1,0 +1,2 @@
+2025-12-18 10:59:26 CONTROL Session started at 25-12-18_10h59m26s
+2025-12-18 10:59:27 CONTROL Connected with CoppeliaSim.
